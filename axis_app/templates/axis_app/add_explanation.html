@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="expforms">
+	 <form method="POST" class="exp-form">
+	 	{% csrf_token %}
+	 	{{ expforms.management_form }}
+		{% for expform in expforms %}
+			{{expform.as_p}}
+		{% endfor %}
+		<button type="submit" class="submit" text="Save">Save</button>
+	</form>
+</div>
