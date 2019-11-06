@@ -1,0 +1,13 @@
+<h1>Mooclets</h1>
+<h2>Instructions</h2>
+<p>
+	Here you can create a new workflow for a mooclet. You will need an input mooclet ID and an output mooclet ID from <a href="https://test.mooclet.com/engine/api/v1/">https://test.mooclet.com/engine/api/v1/</a>. For a workflow that you have already created, you can click "filter explanations" to view user explanations and add them as mooclet versions.
+</p>
+<ul>
+	<li><a href="{% url 'create-mooclet' %}">Create new MOOClet</a></li>
+{% for mooclet in object_list %}
+    <li>{{ mooclet.pk }} - {{ mooclet.output_engine_name }} <a href="{% url 'select-versions' mooclet.pk %}">Filter Explanations</a> | <a href="{% url 'edit-mooclet' mooclet.pk %}">Edit</a> | <a href="{% url 'show-versions' mooclet.pk %}">List Current Versions</a></li>
+{% empty %}
+    <li>No mooclets yet.</li>
+{% endfor %}
+</ul>

@@ -5,3 +5,7 @@ idna==2.7
 pytz==2018.5
 requests==2.19.1
 urllib3==1.23
+psycopg2
+boto3
+django-storages
+

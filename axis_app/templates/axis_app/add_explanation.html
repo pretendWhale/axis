@@ -1,4 +1,6 @@
 {% load static %}
+<h2>Instructions</h2>
+<p>Click "add to version set" on any explanation to add it to the mooclet version set. In future you can add new explanations via a form field below.</p>
 
 <div class="expforms">
 	 <form method="POST" class="exp-form">
@@ -6,6 +8,8 @@
 	 	{{ expforms.management_form }}
 		{% for expform in expforms %}
 			{{expform.as_p}}
+		{% empty %}
+			<p>No user explanations have been generated.</p>
 		{% endfor %}
 		<button type="submit" class="submit" text="Save">Save</button>
 	</form>

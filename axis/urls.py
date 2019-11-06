@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from axis_app.views import show_explanations, show_filtered_explanations, select_versions
+from axis_app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('showexp',show_explanations),
     path('filter',show_filtered_explanations),
-    path('select',select_versions)
+    path('select/<int:mooclet>',select_versions, name='select-versions'),
+    path('mooclet', MoocletListView.as_view() ),
+    path('current_versions/<int:mooclet>',show_current_versions, name='show-versions'),
+    path('mooclet/<int:pk>/edit', MoocletFormView.as_view(), name='edit-mooclet'),
+    path('mooclet/create', MoocletCreateView.as_view(), name='create-mooclet'),
+    path('edit', edit_version, name='edit-version')
 ]

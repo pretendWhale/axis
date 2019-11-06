@@ -1,0 +1,10 @@
+<h1>Versions for mooclet {{mooclet.output_engine_name}}</h1>
+<ul>
+	
+{% for version in versions %}
+    <li>{{ version.id }} - {{ version.text }} | <a href="{% url 'edit-version' version %}">Edit</a></li>
+{% empty %}
+    <li>No versions yet.</li>
+{% endfor %}
+</ul>
+<p>Add a new version</p>
